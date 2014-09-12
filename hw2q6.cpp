@@ -184,9 +184,12 @@ double auxCapLearning(classroom* classArray, int index, double t_Work, double wo
 		}
 //		std::cout << "New maxLearning is " << tempMaxLearning << std::endl;
 	}
-	return tempMaxLearning + classArray[index].learning; /*if index exceeds numberOfClasses the loop immediately exits and returns the last value.
-								* otherwise, recursively returns the combination of the most recently added classes.
-								*/
+	if (index == -1) //returns the final max learning value acquired
+	{
+		return tempMaxLearning;
+	}
+	return tempMaxLearning + classArray[index].learning; //sums up the total in the recursive call
+							
 }
 
 double maximizeLearning(classroom *classArray, double workLimit, int numOfClasses) //encapsulates the recursive function to make sure it doesn't get called with strange values.
