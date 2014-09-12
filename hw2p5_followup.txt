@@ -1,0 +1,20 @@
+Results of timing tests of recursive versus iterative add.
+//tests with k = 1500
+//test 1: iterative duration - 3.72, recursive duration - 15.3, iterative 411.29% faster.
+//test 2: iterative duration - 3.98, recursive duration - 16.26, iterative 408.54% faster.
+//test 3: iterative duration - 3.73, recursive duration - 15.56, iterative 417.16% faster.
+//test 4: iterative duration - 3.73, recursive duration - 15.64, iterative 419.30% faster.
+
+//tests with k = 1000
+//test 1: iterative duration - 2.5, recursive duration - 10.58, iterative 423.2% faster.
+//test 2: iterative duration - 2.58, recursive duration - 10.41, iterative 403.49% faster.
+//test 3: iterative duration - 2.6, recursive duration - 10.2, iterative 392.31% faster.
+//test 4: iterative duration - 2.58, recursive duration - 10.56, iterative 409.30% faster.
+
+//tests with k = 200
+//test 1: iterative duration - .5, recursive duration - 2.01, iterative 402% faster.
+//test 2: iterative duration - .5, recursive duration - 2.27, iterative 454.49% faster.
+//test 3: iterative duration - .5, recursive duration - 2.2, iterative 440% faster.
+//test 4: iterative duration - .49, recursive duration - 2.23, iterative 455.10% faster.
+
+Iterative duration tends to be anywhere from 400-450% faster than the recursive duration.

@@ -1,0 +1,19 @@
+hw2 Problem2
+
+Part a: README.md status is unmodified
+
+Part b: README.md status is modified, fun_problem.txt is untracked
+
+Part c: both README.md and fun_problem.txt are staged.
+
+Part d: both README.md and fun_problem.txt are modified.
+
+Part e: README.md is staged for commit, fun_problem.txt is unmodified.
+additionally, fun_problem.txt should be empty as git checkout updates the files on the working branch to match the version that has been specified.
+
+Part f: README.md is both modified and staged at the same time. this is because git still recognizes the previous version of the README file you had staged for commit despite having edited the README afterwards.
+
+Part g: they would see the following lines:
+ >figure courtesy of the [Pro Git](http://git-scm.com/book) book by Scott Chacon
+Markdown is easy
+Markdown is too easy

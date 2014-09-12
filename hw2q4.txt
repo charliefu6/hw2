@@ -1,0 +1,8 @@
+-an undercase letter is a correctly parenthesized expression (CPE).
+-an empty bracket "[]" is a CPE.
+-an empty parentheses "()" is a CPE.
+-if b is a correctly parenthesized expression (CPE), and x is a lower-case letter, then the concatenations x + b and b + x are CPEs
+-if b is a CPE, then the concatenations "[]" + b and b + "[]" are CPEs.
+-if b is a CPE, then the concatenations "()" + b and b + "()" are CPEs.
+-if b is a CPE, the concatenation "[" + b + "]" is a CPE.
+-if b is a CPE, the concatenation "(" + b + ")" is a CPE.

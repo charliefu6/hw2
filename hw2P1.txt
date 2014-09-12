@@ -1,0 +1,19 @@
+HW 2 problem 1
+
+Part a: every action line must start with a [tab]
+
+Part b: 
+make clean will execute the commands associated with target clean:
+rm -f *.o *~ shape1 shape2
+
+afterwards, make shape1 will execute the commands associated with target shape1.o, shape.o, and shape1, as those were just cleaned. the following will be executed.
+resulting command for target shape1.0
+g++ -c -o shape1.o shape1.cpp -std=c++11 -ggdb
+resulting command for target shape.o:
+g++ -c -o shape.o shape.cpp -std=c++11 -ggdb
+lastly, the resulting command for target shape1:
+g++ -o shape1 shape1.o shape.o -std=c++11 -ggdb
+
+part c: the .PHONY rule tells the makefile to ignore files in your folder that contain that name when reading through the makefile commands. In the example shown, .PHONY is applied to clean so that the actions associated with clean aren't executed if a file named clean is found in your directory.
+
+part d: only Makefile and makefile are acceptable if you type in make into the command line.
