@@ -76,52 +76,24 @@ void getLineCount(std::string line, int *lineCount, int ** numberArray) //reads 
 	}
 }
 
-int iterativeAdd(int number) //uses a for loop to iteratively increment or decrement i to the specified value and return it.
+int iterativeAdd(int* numberArray, int size) //uses a for loop to iteratively increment or decrement i to the specified value and return it.
 {
-	int i;
-	if( number > 0)
+	int sum=0;
+	int i = 0;
+	while(i < size)
 	{
-		for(i = 0; i < number; i++)
-		;
-		return i;
+		sum += numberArray[i];
+		i++;
 	}
-	else
-	{
-		for(i = 0; i > number; i--)
-		;
-		return i;
-	}
+	return sum;
 }
 
-int recursiveAdd(int number) //uses a recursive call to increment or decrement i to the specified value and return it.
+int recursiveAdd(int* numberArray, int size) //uses a recursive call to increment or decrement i to the specified value and return it.
 {
-	//Base cases:
-	if(number == 0)
-	{
+	if( size != -1)
+		return numberArray[size] + recursiveAdd(numberArray, size-1);
+	else
 		return 0;
-	}
-	if(number == 1)
-	{
-		return 1;
-	}
-	else if(number == -1)
-	{
-		return -1;
-	}
-	//Recursive cases:
-	else if ( number > 1 )
-	{
-		return 1 + recursiveAdd(number - 1);
-	}
-	else if(number < -1)
-	{
-		return -1 + recursiveAdd(number + 1);
-	}
-	else //if some strange input is received, throw an error.
-	{
-		std::cout << "Fatal Error- No return conditions met." << std::endl;
-		exit(EXIT_FAILURE);
-	}
 }
 
 int main (int argc, char *argv[])
@@ -180,14 +152,9 @@ int main (int argc, char *argv[])
 		int i;
 		int k;
 		start = clock();
-		for (k=0; k < 200; k++) //iteratively adds the numbers in the array k times and calculates the time taken
+		for (k=0; k < 200000000; k++) //iteratively adds the numbers in the array k times and calculates the time taken
 		{
-			iterativeSum=0;
-			for (i = 0; i < lineNumber; i++)
-			{
-				iterativeSum += iterativeAdd(numberArray[i]);
-//				std::cout << iterativeSum << std::endl;
-			}
+			iterativeSum=iterativeAdd(numberArray, lineNumber);
 		}
 		finish = clock();
 		iterativeDuration = (double) (finish-start);
@@ -195,14 +162,9 @@ int main (int argc, char *argv[])
 		std::cout << "Iterative sum is " << iterativeSum << std::endl;
 		std::cout << "Elapsed seconds: " << iterativeDuration << std::endl;
 		start = clock();
-		for (k = 0; k < 200; k++) //recursively adds the numbers in the array k times and calculates the time taken.
+		for (k = 0; k < 200000000; k++) //recursively adds the numbers in the array k times and calculates the time taken.
 		{
-			recursiveSum=0;
-			for (i = 0; i < lineNumber ; i++)
-			{
-				recursiveSum += recursiveAdd(numberArray[i]);
-//				std::cout << recursiveSum << std::endl;
-			}
+			recursiveSum=recursiveAdd(numberArray, lineNumber-1);
 		}
 		finish = clock();
 		std::cout << "recursive sum is " << recursiveSum << std::endl;
